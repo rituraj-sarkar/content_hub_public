@@ -20,6 +20,8 @@ jobs:
 
       - name: Call external service
         run: |
+          # Capture the commit SHA in a shell variable from GitHub Actions context
+          COMMIT_SHA="${{ github.sha }}"
           echo "Making an external call to custom service..."
 
           # We store the HTTP response code in a variable named $response
@@ -31,8 +33,8 @@ jobs:
           response=$(curl -s -o /tmp/response.json -w '%{http_code}' \
             -X POST \
             -H "Content-Type: application/json" \
-            -d '{"foo":"bar"}' \
-            https://example.com/my-custom-service-endpoint)
+            -d '{"foo":"bar", "commit_sha":"'"$COMMIT_SHA"'"}' \
+            https://fdb7-49-205-251-191.ngrok-free.app/webhook)
 
           echo "HTTP status code: $response"
 
