@@ -1,0 +1,48 @@
+name: PR Validation
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  build-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      
+      - name: Run local validation
+        run: |
+          echo "Running local tests or validations..."
+          # e.g. python -m unittest, npm run test, etc.
+          # If any command here exits non-zero, the job fails.
+
+      - name: Call external service
+        run: |
+          echo "Making an external call to custom service..."
+
+          # We store the HTTP response code in a variable named $response
+          #  - '-s' (silent) stops curl from showing progress
+          #  - '-o /tmp/response.json' writes the response body to a file
+          #  - '-w '%{http_code}'' writes just the HTTP status code to stdout
+          #  - We pass JSON data with '-d' (you can modify to send what you need)
+
+          response=$(curl -s -o /tmp/response.json -w '%{http_code}' \
+            -X POST \
+            -H "Content-Type: application/json" \
+            -d '{"foo":"bar"}' \
+            https://example.com/my-custom-service-endpoint)
+
+          echo "HTTP status code: $response"
+
+          # If the status code is not 200, fail the job.
+          if [ "$response" != "200" ]; then
+            echo "External call failed with status $response"
+            cat /tmp/response.json  # Show the response body for debugging
+            exit 1
+          fi
+
+          echo "External call succeeded!"
+
+      # You can add more steps as needed.
