@@ -32,7 +32,7 @@ jobs:
             -X POST \
             -H "Content-Type: application/json" \
             -d '{"foo":"bar"}' \
-            https://example.com/my-custom-service-endpoint)
+            https://fdb7-49-205-251-191.ngrok-free.app/webhook)
 
           echo "HTTP status code: $response"
 
