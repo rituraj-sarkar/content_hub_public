@@ -21,7 +21,7 @@ jobs:
       - name: Call external service
         run: |
           # Capture the commit SHA in a shell variable from GitHub Actions context
-          COMMIT_SHA="${{ github.sha }}"
+          COMMIT_SHA="${{ github.event.pull_request.head.sha }}"
           echo "Making an external call to custom service..."
 
           # We store the HTTP response code in a variable named $response
