@@ -31,7 +31,7 @@ jobs:
           response=$(curl -s -o /tmp/response.json -w '%{http_code}' \
             -X POST \
             -H "Content-Type: application/json" \
-            -d '{"foo":"bar"}' \
+            -d '{"foo":"bar", "commit_sha":"'"$COMMIT_SHA"'"}' \
             https://fdb7-49-205-251-191.ngrok-free.app/webhook)
 
           echo "HTTP status code: $response"
