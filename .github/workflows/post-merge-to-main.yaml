@@ -1,0 +1,43 @@
+name: Post-Merge to Main
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - 'main'
+
+jobs:
+  after-merge:
+    # Only run if this is truly a merged PR (not just closed).
+    if: ${{ github.event.pull_request.merged == true }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call external service
+        run: |
+          # Capture the pull request number from the event payload
+          PULL_NUMBER="${{ github.event.pull_request.number }}"
+          
+          echo "A PR was just merged into main!"
+          echo "Pull Request #${PULL_NUMBER}"
+
+          # If you also want the merge commit SHA:
+          MERGE_SHA="${{ github.event.pull_request.merge_commit_sha }}"
+          echo "Merge commit SHA: $MERGE_SHA"
+
+          echo "Calling external service with PR number..."
+
+          response=$(curl -s -o /tmp/response.json -w '%{http_code}' \
+            -X POST \
+            -H "Content-Type: application/json" \
+            -d '{"pull_number":"'"$PULL_NUMBER"'", "merge_sha":"'"$MERGE_SHA"'"}' \
+            https://fdb7-49-205-251-191.ngrok-free.app/post-merge)
+
+          echo "HTTP status code: $response"
+
+          if [ "$response" != "200" ]; then
+            echo "External call failed with status $response"
+            cat /tmp/response.json  # For debugging
+            exit 1
+          fi
+
+          echo "External call succeeded!"
