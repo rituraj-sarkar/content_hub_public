@@ -24,7 +24,7 @@ jobs:
           MERGE_SHA="${{ github.event.pull_request.merge_commit_sha }}"
           echo "Merge commit SHA: $MERGE_SHA"
 
-          echo "Calling external service with PR number..."
+          echo "Calling external service with PR number... https://api.soulhq.ai"
 
           response=$(curl -s -o /tmp/response.json -w '%{http_code}' \
             -X POST \
