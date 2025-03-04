@@ -6,3 +6,4 @@
 ✅ **Principle 3:** Real-world impact.
 
 🎥 **[Watch Video](${PRIVATE_VIDEO_INTRO_1})**  
+🎥 **[Watch Video](${PRIVATE_VIDEO_INTRO_2})**  
