@@ -11,4 +11,4 @@
 🎥 **[AUDIO](${PRIVATE_AUDIO_INTRO_1})**
 
 [Click here to go to fundamental principles](${INTERNAL_TOPIC_LINK_1})
-[Click here to go to Core concepts](${INTERNAL_TOPIC_LINK_1})
+
