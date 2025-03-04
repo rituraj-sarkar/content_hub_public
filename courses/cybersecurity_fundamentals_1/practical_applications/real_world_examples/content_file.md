@@ -7,3 +7,5 @@
 
 🎥 **[Watch Video](${PUBLIC_VIDEO_INTRO_1})**  
 🎥 **[Watch Video](${PUBLIC_VIDEO_INTRO_1})**  
+
+🎥 **[AUDIO](${PRIVATE_AUDIO_INTRO_1})**  
