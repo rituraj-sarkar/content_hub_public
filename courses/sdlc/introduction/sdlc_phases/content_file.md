@@ -11,7 +11,8 @@ flowchart TD
     C -->|Two| E[iPhone]
     C -->|Three| F[fa:fa-car Car]
     
-📌 Key Takeaways:
+    
+### 📌 Key Takeaways:
 
 Planning: Define goals & feasibility
 Analysis: Gather & document requirements
