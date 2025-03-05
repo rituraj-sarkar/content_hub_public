@@ -5,7 +5,7 @@
 📊 **Types of Feasibility Analysis:**
 
 * Technical Feasibility
-* Economic Feasibility
+* Economics Feasibility
 * Legal & Operational Feasibility
 
 📄 [**LINK TO Requirement Gathering**]($INTERNAL_TOPIC_LINK)
