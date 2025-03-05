@@ -9,3 +9,9 @@
 * Document analysis
 
 🎥 [**LINK TO Requirement Gathering**]($INTERNAL_TOPIC_LINK)
+
+```tsx
+export default function App() {
+  return (<div>Hello world</div>)
+}
+```
