@@ -4,7 +4,7 @@
 
 📊 **Types of Feasibility Analysis:**
 
-* Technical Feasibility
+* Technical Feasibilitys
 * Economics Feasibility
 * Legal & Operational Feasibility
 
